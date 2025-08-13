@@ -16,7 +16,7 @@ function App() {
     <div className="App">
       <header className="App-header">
        
-        <h1>Welcome to my app H</h1>
+        <h1>Welcome to my app</h1>
 
         <BrowserRouter>
           <Routes>
