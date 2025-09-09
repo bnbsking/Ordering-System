@@ -1,19 +1,18 @@
 //my-ordering-site/src/components/ImageGrid.jsx
 import { useState } from "react";
+import { useCart } from "../context/CartContext";
 
 export default function ImageGrid({ images }) {
   const sortedImages = [...images].sort((a, b) =>
     a.name.localeCompare(b.name)
   );
 
+  const { addToCart } = useCart();
+
   const [selectedImage, setSelectedImage] = useState(null); // null = no modal open
 
   const [quantity, setQuantity] = useState(0);
 
-  const openModal = (img) => {
-    setSelectedImage(img);
-    setQuantity(0); // reset quantity each time modal opens
-  };
   const closeModal = () => {
     setSelectedImage(null);
     setQuantity(0); // reset when closing
@@ -74,13 +73,16 @@ export default function ImageGrid({ images }) {
               </button>
             </div>
 
-            {/* Example action */}
+            {/* Add to Cart */}
             <div className="mt-4 flex justify-center">
               <button
                 className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-                onClick={() => alert(`Ordered ${quantity} ${selectedImage.name} Successfully!`)}
+                onClick={() => {
+                  addToCart(selectedImage, quantity);
+                  closeModal();
+                }}
               >
-                Add to Order
+                Add to Cart
               </button>
             </div>
 

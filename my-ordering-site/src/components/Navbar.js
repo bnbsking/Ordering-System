@@ -8,7 +8,7 @@ export default function Navbar() {
       <ul className="flex space-x-6 text-[22px]">
         <li><Link to="/" className="hover:underline">Home</Link></li>
         <li><Link to="/menu" className="hover:underline">Menu</Link></li>
-        <li><Link to="/orders" className="hover:underline">Orders</Link></li>
+        <li><Link to="/cart" className="hover:underline">Cart</Link></li>
         <li><Link to="/contact" className="hover:underline">Contact</Link></li>
         <li><a href="/special" className="hover:underline">Special</a></li>
       </ul>
